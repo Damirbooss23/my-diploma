@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.navbar button:hover {
+  background: #555;
+}
+
+.navbar button.active {
+  background: #777;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-nav {
+  display: flex;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.logout-btn {
+  background: #f00;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.app-main {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Favorites page */
+.favorites-page {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.favorites-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.favorites-page li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Login page */
+.login-page {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.login-page input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.login-page button {
+  width: 100%;
+  padding: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-page button:hover {
+  background: #555;
+}

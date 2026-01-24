@@ -1,0 +1,45 @@
+.choosed-page {
+  padding: 20px;
+}
+
+.choosed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.choosed-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.choosed-card h3 {
+  margin: 0;
+}
+
+.choosed-card p {
+  margin: 5px 0;
+}
+
+.choosed-card button {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.choosed-card button:hover {
+  background: #cc3333;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 20px;
+}

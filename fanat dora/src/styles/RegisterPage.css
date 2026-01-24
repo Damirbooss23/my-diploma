@@ -1,0 +1,70 @@
+.register-page {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.register-container {
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.interests-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.interest-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.register-btn {
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.success-message {
+  background: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+}

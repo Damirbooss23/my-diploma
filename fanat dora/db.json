@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "email": "desdaulet4@gmail.com",
+      "password": "$2a$10$7CsQyyR/xQIFzbZl7ng/lO.x9Xq1SbS9ObqVS.fTQ4J7TMbWWvulW",
+      "name": "Damir Yesdauletov",
+      "interests": [
+        "Искусство"
+      ],
+      "id": 1
+    }
+  ],
+  "favorites": [
+    {
+      "item": "Новый элемент",
+      "id": 1
+    }
+  ]
+}
