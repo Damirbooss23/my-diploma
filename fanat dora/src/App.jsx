@@ -3,6 +3,7 @@ import './App.css'
 import RegisterPage from './components.jsx/RegisterPage'
 import Navbar from './components.jsx/Navbar'
 import ResultsPage from './components.jsx/ResultsPage'
+import SearchPage from './pages/SearchPage'
 import { loginUser, getFavorites, addToFavorites } from './services/api'
 
 function App() {
@@ -53,11 +54,11 @@ function App() {
 
   return (
     <div className="app-container">
-      <Navbar 
-        currentPage={currentPage} 
-        setCurrentPage={setCurrentPage} 
-        user={user} 
-        handleLogout={handleLogout} 
+      <Navbar
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        user={user}
+        handleLogout={handleLogout}
       />
 
       <main className="app-main">
@@ -88,10 +89,20 @@ function App() {
         {currentPage === 'home' && user && (
           <div className="home-page">
             <h2>Добро пожаловать, {user.name}!</h2>
+            <div className="search-bar">
+              <input
+                type="text"
+                placeholder="🔍 Поиск университетов..."
+                onClick={() => setCurrentPage('search')}
+              />
+            </div>
             <button onClick={() => setCurrentPage('favorites')}>Избранное</button>
             <button onClick={() => setCurrentPage('results')}>Результаты</button>
             <button onClick={() => handleAddFavorite('Новый элемент')}>Добавить в избранное</button>
           </div>
+        )}
+        {currentPage === 'search' && user && (
+          <SearchPage onAddFavorite={handleAddFavorite} />
         )}
         {currentPage === 'results' && user && (
           <ResultsPage />

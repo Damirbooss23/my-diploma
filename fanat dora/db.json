@@ -8,12 +8,41 @@
         "Искусство"
       ],
       "id": 1
+    },
+    {
+      "email": "desdaulet52@gmail.com",
+      "password": "$2a$10$2HNpeTK05HfxKIjIWX/VY.ErmAheUWmAQSxXqtHTXYc8/TNwyADom",
+      "name": "Damir Yesdauletov",
+      "interests": [
+        "Гуманитарные науки"
+      ],
+      "id": 2
     }
   ],
   "favorites": [
     {
       "item": "Новый элемент",
       "id": 1
+    },
+    {
+      "item": "Новый элемент",
+      "id": 2
+    },
+    {
+      "item": "Новый элемент",
+      "id": 3
+    },
+    {
+      "item": "Новый элемент",
+      "id": 4
+    },
+    {
+      "item": "University of Warwick",
+      "id": 5
+    },
+    {
+      "item": "University of Bristol",
+      "id": 6
     }
   ]
 }
