@@ -131,3 +131,10 @@ export const updateUserProfile = async (userData) => {
     body: JSON.stringify(userData)
   });
 };
+
+// Universities API
+export const getUniversities = async () => apiGet('/universities');
+export const getUniversity = async (id) => apiGet(`/universities/${id}`);
+export const createUniversity = async (data) => apiPost('/universities', data);
+export const updateUniversity = async (id, data) => apiPut(`/universities/${id}`, data);
+export const deleteUniversity = async (id) => apiDelete(`/universities/${id}`);

@@ -1,44 +1,34 @@
+import '../styles/Universities.css';
 import { universities } from "../data/universities";
 
 const UniversitiesList = ({ universities: unis = universities, onAddFavorite }) => {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Universities</h2>
+    <div className="unis-container">
+      <h2 className="unis-header">Universities</h2>
 
-      {unis.map((uni) => (
-        <div
-          key={uni.id}
-          style={{
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            padding: "15px",
-            marginBottom: "12px"
-          }}
-        >
-          <h3>{uni.name}</h3>
+      <div className="unis-list">
+        {unis.map((uni) => (
+          <div key={uni.id} className="uni-card">
+            <h3>{uni.name}</h3>
 
-          <p>
-            📍 {uni.city}, {uni.country}
-          </p>
+            <p className="uni-meta">📍 {uni.city}, {uni.country}</p>
 
-          <p>🌍 World Ranking: {uni.ranking}</p>
+            <p className="uni-meta">🌍 World Ranking: {uni.ranking}</p>
 
-          <p>🎓 Programs: {uni.programs.join(", ")}</p>
+            <p className="uni-meta">🎓 {uni.programs && uni.programs.join(", ")}</p>
 
-          {uni.foundation && <p>✅ Foundation available</p>}
+            {uni.foundation && <p className="uni-meta">✅ Foundation available</p>}
 
-          {onAddFavorite && (
-            <button 
-              onClick={() => onAddFavorite(uni.name)} 
-              style={{ padding: '5px 10px', background: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-            >
-              Добавить в избранное
-            </button>
-          )}
-        </div>
-      ))}
+            {onAddFavorite && (
+              <div className="uni-actions">
+                <button className="btn btn-fav" onClick={() => onAddFavorite(uni.name)}>Добавить в избранное</button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default UniversitiesList;
+export default UniversitiesList; 

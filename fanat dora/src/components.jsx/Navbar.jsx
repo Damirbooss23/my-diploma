@@ -1,9 +1,10 @@
 import React from 'react'
+import '../styles/Universities.css';
 
 export default function Navbar({ currentPage, setCurrentPage, user, handleLogout }) {
   return (
     <header className="navbar">
-      <h1>UNIMATE</h1>
+      <h1 className="brand">UNIMATE</h1>
       <nav>
         {!user && (
           <>
@@ -33,7 +34,7 @@ export default function Navbar({ currentPage, setCurrentPage, user, handleLogout
             </button>
             <button 
               onClick={() => setCurrentPage('favorites')}
-              className={currentPage === 'favorites' ? 'active' : ''}
+              className={`fav-btn ${currentPage === 'favorites' ? 'active' : ''}`}
             >
               Избранное
             </button>
@@ -44,7 +45,7 @@ export default function Navbar({ currentPage, setCurrentPage, user, handleLogout
               Результаты
             </button>
           </nav>
-          <span>Привет, {user.name}!</span>
+          <span className="greeting">Привет, {user.name}!</span>
           <button onClick={handleLogout} className="logout-btn">Выход</button>
         </div>
       )}

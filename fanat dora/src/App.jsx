@@ -4,12 +4,16 @@ import RegisterPage from './components.jsx/RegisterPage'
 import Navbar from './components.jsx/Navbar'
 import ResultsPage from './components.jsx/ResultsPage'
 import SearchPage from './pages/SearchPage'
-import { loginUser, getFavorites, addToFavorites } from './services/api'
+import UniversityForm from './pages/UniversityForm'
+import UniversityDetail from './pages/UniversityDetail'
+import { loginUser, getFavorites, addToFavorites, deleteUniversity } from './services/api'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('register')
   const [user, setUser] = useState(null)
   const [favorites, setFavorites] = useState([])
+  const [selectedUniId, setSelectedUniId] = useState(null)
+  const [unisRefreshKey, setUnisRefreshKey] = useState(0)
 
   const loadFavorites = useCallback(async () => {
     try {
@@ -50,6 +54,20 @@ function App() {
   const handleLogin = (userData) => {
     setUser(userData)
     setCurrentPage('home')
+  }
+
+  const openUniDetail = (id) => { setSelectedUniId(id); setCurrentPage('uni_detail'); };
+  const openUniCreate = () => { setSelectedUniId(null); setCurrentPage('uni_create'); };
+  const openUniEdit = (id) => { setSelectedUniId(id); setCurrentPage('uni_edit'); };
+  const handleDeleteUniversity = async (id) => {
+    try {
+      if (!confirm('Удалить университет?')) return;
+      await deleteUniversity(id);
+      setUnisRefreshKey(k => k + 1);
+      setCurrentPage('search');
+    } catch (err) {
+      alert('Ошибка удаления: ' + err.message);
+    }
   }
 
   return (
@@ -96,13 +114,20 @@ function App() {
                 onClick={() => setCurrentPage('search')}
               />
             </div>
-            <button onClick={() => setCurrentPage('favorites')}>Избранное</button>
+            <button className="fav-btn" onClick={() => setCurrentPage('favorites')}>Избранное</button>
             <button onClick={() => setCurrentPage('results')}>Результаты</button>
             <button onClick={() => handleAddFavorite('Новый элемент')}>Добавить в избранное</button>
+            <button onClick={openUniCreate}>Добавить университет</button>
           </div>
         )}
         {currentPage === 'search' && user && (
-          <SearchPage onAddFavorite={handleAddFavorite} />
+          <SearchPage
+            onAddFavorite={handleAddFavorite}
+            onView={openUniDetail}
+            onEdit={openUniEdit}
+            onDelete={handleDeleteUniversity}
+            refreshKey={unisRefreshKey}
+          />
         )}
         {currentPage === 'results' && user && (
           <ResultsPage />
@@ -117,6 +142,16 @@ function App() {
             </ul>
             <button onClick={() => setCurrentPage('home')}>Назад</button>
           </div>
+        )}
+
+        {currentPage === 'uni_create' && user && (
+          <UniversityForm mode="create" onDone={() => { setUnisRefreshKey(k => k+1); setCurrentPage('search'); }} />
+        )}
+        {currentPage === 'uni_edit' && user && (
+          <UniversityForm mode="edit" id={selectedUniId} onDone={() => { setUnisRefreshKey(k => k+1); setCurrentPage('search'); }} />
+        )}
+        {currentPage === 'uni_detail' && user && (
+          <UniversityDetail id={selectedUniId} onEdit={(id) => openUniEdit(id)} onBack={() => setCurrentPage('search')} />
         )}
       </main>
 
